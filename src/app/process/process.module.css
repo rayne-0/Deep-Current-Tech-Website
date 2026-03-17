@@ -1,0 +1,232 @@
+/* ── PROCESS PAGE ───────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 10rem 0 5rem;
+}
+
+.headerInner {
+  max-width: 700px;
+}
+
+.title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--ink-2);
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+/* ── TIMELINE ───────────────────────────── */
+.timeline {
+  padding: 4rem 0 6rem;
+  flex: 1;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 120px 48px 1fr;
+  gap: 2rem;
+  align-items: start;
+  min-height: 140px;
+}
+
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  padding-top: 0.25rem;
+  text-align: right;
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent);
+  letter-spacing: 0.12em;
+}
+
+.stepPhase {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+}
+
+/* The vertical connector */
+.stepConnector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.25rem;
+}
+
+.stepDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-line);
+  flex-shrink: 0;
+}
+
+.stepLine {
+  width: 1px;
+  flex: 1;
+  min-height: 80px;
+  background: linear-gradient(to bottom, var(--accent-line), var(--rule));
+  margin-top: 6px;
+}
+
+.stepRight {
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stepTitle {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink-1);
+  letter-spacing: -0.02em;
+}
+
+.stepDesc {
+  font-size: var(--text-base);
+  color: var(--ink-2);
+  line-height: 1.8;
+  max-width: 58ch;
+}
+
+.deliverables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.deliverable {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.deliverable:hover {
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+/* ── PRINCIPLES ─────────────────────────── */
+.principles {
+  padding: 5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.principlesHead {
+  margin-bottom: 3rem;
+}
+
+.principlesTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.principle {
+  padding: 2.5rem;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background 0.2s;
+}
+
+.principle:last-child { border-right: none; }
+.principle:hover { background: var(--bg-subtle); }
+
+.principleIcon {
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.principleTitle {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink-1);
+}
+
+.principleDesc {
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+
+/* ── CTA ────────────────────────────────── */
+.cta {
+  padding: 6rem 0;
+}
+
+.ctaInner {
+  border: 1px solid var(--rule-md);
+  border-radius: var(--r-lg);
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--bg-subtle);
+}
+
+.ctaTitle {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.15;
+}
+
+.ctaDesc {
+  font-size: var(--text-base);
+  color: var(--ink-2);
+  line-height: 1.75;
+  max-width: 500px;
+}
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media (max-width: 768px) {
+  .step { grid-template-columns: 80px 32px 1fr; gap: 1rem; }
+  .ctaInner { padding: 2.5rem 2rem; }
+  .principlesGrid { grid-template-columns: 1fr 1fr; }
+  .principle:nth-child(2) { border-right: none; }
+}
+
+@media (max-width: 480px) {
+  .step { grid-template-columns: 1fr; }
+  .stepLeft { align-items: flex-start; flex-direction: row; gap: 1rem; }
+  .stepConnector { display: none; }
+  .principlesGrid { grid-template-columns: 1fr; }
+  .principle { border-right: none; border-bottom: 1px solid var(--rule); }
+  .principle:last-child { border-bottom: none; }
+}

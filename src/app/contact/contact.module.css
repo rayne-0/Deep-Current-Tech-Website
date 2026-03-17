@@ -1,0 +1,223 @@
+/* ── CONTACT PAGE ───────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.hero {
+  flex: 1;
+  padding: 9rem 0 6rem;
+}
+
+/* ── SPLIT LAYOUT ───────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: start;
+}
+
+/* ── COPY ───────────────────────────────── */
+.copy {
+  position: sticky;
+  top: 6rem;
+}
+
+.title {
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: var(--text-base);
+  color: var(--ink-2);
+  line-height: 1.8;
+  max-width: 400px;
+  margin-bottom: 3rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.2s;
+}
+
+.detailItem:last-child { border-bottom: none; }
+.detailItem:hover { background: var(--bg-subtle); }
+
+.detailLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.detailValue {
+  font-size: var(--text-sm);
+  color: var(--ink-1);
+  font-weight: 500;
+}
+
+/* ── FORM ───────────────────────────────── */
+.formWrap {
+  background: var(--bg-subtle);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.input,
+.select,
+.textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 0.85rem 1rem;
+  color: var(--ink-1);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  width: 100%;
+  transition: border-color 0.2s, background 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--ink-3);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--accent-line);
+  background: rgba(34, 211, 238, 0.04);
+}
+
+.select {
+  cursor: pointer;
+  /* Custom arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23475569' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.select option {
+  background: var(--bg-1);
+  color: var(--ink-1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.submit {
+  width: 100%;
+  justify-content: center;
+  padding: 1rem !important;
+  font-size: var(--text-base) !important;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.formNote {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+/* ── SUCCESS STATE ──────────────────────── */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  gap: 1.25rem;
+  animation: fade-up 0.5s ease;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid var(--accent-line);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.successTitle {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ink-1);
+}
+
+.successDesc {
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  line-height: 1.75;
+  max-width: 32ch;
+}
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .copy { position: static; }
+}
+
+@media (max-width: 480px) {
+  .row { grid-template-columns: 1fr; }
+}

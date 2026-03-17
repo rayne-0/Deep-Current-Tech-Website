@@ -1,0 +1,106 @@
+/* ================================================
+   SHARED COMPONENT STYLES — Navbar & Footer
+   ================================================ */
+
+/* ─── NAVBAR ──────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.navbarScrolled {
+  background: rgba(6, 8, 15, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom-color: var(--rule);
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 6vw, 4rem);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.navLinks a {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+
+.navLinks a:hover { color: var(--ink-1); }
+
+.navActive {
+  color: var(--ink-1) !important;
+}
+
+.navCta {
+  font-size: var(--text-sm) !important;
+  padding: 0.6rem 1.4rem !important;
+}
+
+/* ─── FOOTER ──────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--rule);
+  padding: 2.5rem 0;
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footerBrand {
+  display: flex;
+  align-items: center;
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.footerLinks a {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  transition: color 0.2s;
+}
+
+.footerLinks a:hover { color: var(--ink-1); }
+
+.footerCopy {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 640px) {
+  .navLinks { display: none; }
+  .footerInner { flex-direction: column; gap: 1.25rem; }
+  .footerLinks { justify-content: center; }
+}

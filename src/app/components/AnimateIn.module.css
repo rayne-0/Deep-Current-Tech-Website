@@ -1,0 +1,19 @@
+/* ── AnimateIn: base hidden state ─────────── */
+.base {
+  transition:
+    opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Directions — initial (hidden) state */
+.up    { opacity: 0; transform: translateY(28px); }
+.left  { opacity: 0; transform: translateX(-28px); }
+.right { opacity: 0; transform: translateX(28px); }
+.none  { opacity: 0; transform: none; }
+
+/* Visible state — added by observer */
+.visible {
+  opacity: 1 !important;
+  transform: none !important;
+}

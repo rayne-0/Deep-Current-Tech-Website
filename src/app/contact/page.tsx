@@ -16,11 +16,28 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate send — wire up to your backend / Formspree / etc.
-    setTimeout(() => setStatus("sent"), 1800);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+      } else {
+        alert("Failed to send message. Please try again.");
+        setStatus("idle");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred. Please try again.");
+      setStatus("idle");
+    }
   };
 
   return (
